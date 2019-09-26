@@ -1,0 +1,45 @@
+
+    <mat-card>
+            <mat-card-title>Add New Driver</mat-card-title>
+              <mat-card-content>
+                <form [formGroup]="newDriverForm" (ngSubmit)="submit()">
+                  <p>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Driver Name" formControlName="driver_name">
+                    </mat-form-field>
+                  </p>
+        
+                  <p>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Driver Email" formControlName="driver_email">
+                    </mat-form-field>
+                  </p>
+    
+                  <p>
+                        <mat-form-field>
+                          <input type="text" matInput placeholder="Driver NIC" formControlName="driver_nic">
+                        </mat-form-field>
+                      </p>
+                  
+    
+                  <p>
+                        <mat-form-field>
+                          <input type="text" matInput placeholder="License" formControlName="license">
+                        </mat-form-field>
+                </p>
+    
+                
+    
+                <p>
+                        <mat-form-field>
+                          <input type="text" matInput placeholder="Contact Number" formControlName="contact_num">
+                        </mat-form-field>
+                </p>
+    
+                  <div class="button">
+                    <button type="submit" color="primary" mat-raised-button>Register</button>
+                  </div>
+        
+                </form>        
+              </mat-card-content>
+            </mat-card>

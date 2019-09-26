@@ -1,0 +1,62 @@
+
+    <mat-card>
+        <mat-card-title>Add New Vehicle</mat-card-title>
+          <mat-card-content>
+            <form [formGroup]="newVehicleForm" (ngSubmit)="submit()">
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Vehicle Registration" formControlName="vehicle_reg">
+                </mat-form-field>
+              </p>
+    
+              <p>
+                <mat-form-field>
+                  <input type="text" matInput placeholder="Vehicle Brand" formControlName="v_brand">
+                </mat-form-field>
+              </p>
+
+            <p>
+            <mat-slide-toggle [checked]="checked" formControlName="ac_condition">AC Condition</mat-slide-toggle>    
+            </p>
+
+              
+
+              <p>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Vehicle Brand" formControlName="v_brand">
+                    </mat-form-field>
+            </p>
+
+            <p>
+            
+                <mat-form-field>
+                <mat-label>Cars</mat-label>
+                <select matNativeControl formControlName="v_type">
+                    <option value="car">Car</option>
+                    <option value="van">Van</option>
+                    <option value="suv">SUV</option>
+                    <option value="bus">Bus</option>
+                </select>
+                </mat-form-field>
+            
+            </p>
+
+            <p>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Vehicle Capacity" formControlName="capacity">
+                    </mat-form-field>
+            </p>
+
+            <p>
+                    <mat-form-field>
+                      <input type="text" matInput placeholder="Vehicle Insuarance Data" formControlName="insurance">
+                    </mat-form-field>
+            </p>
+           
+              <div class="button">
+                <button type="submit" color="primary" mat-raised-button>Register</button>
+              </div>
+    
+            </form>        
+          </mat-card-content>
+        </mat-card>
