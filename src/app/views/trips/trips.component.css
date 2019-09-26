@@ -1,0 +1,9 @@
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 80%;
+}
