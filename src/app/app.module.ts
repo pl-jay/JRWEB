@@ -16,7 +16,7 @@ import { LoaderService } from './services/loader.service';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InteceptorService } from './services/inteceptor.service';
 import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { TripDialogComponent } from '../app/trip-dialog/trip-dialog.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -44,7 +44,8 @@ import { MaterialModule } from './material.module';
     OwnerRegComponent,
     TripsComponent,
     LoaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    TripDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,7 @@ import { MaterialModule } from './material.module';
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: InteceptorService, multi: true },
   ],
-
+  entryComponents: [TripDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

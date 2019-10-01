@@ -22,16 +22,20 @@ export class SidenavComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private auth: AuthService) {}
+  // tslint:disable-next-line:variable-name
+  constructor(private breakpointObserver: BreakpointObserver, private _auth: AuthService) {}
 
   ngOnInit() {
-    if (this.auth.authenticationState.value) {
-      console.log(this.auth.authenticationState.value)
+    if (localStorage.getItem('token')) {
+      console.log(this._auth.authenticationState.value)
       this.isLogged = true;
     } else {
-      console.log(this.auth.authenticationState.value)
+      console.log(this._auth.authenticationState.value)
       this.isLogged = false;
     }
   }
 
+  logout() {
+    this._auth.logoutMethod();
+  }
 }

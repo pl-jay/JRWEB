@@ -5,5 +5,11 @@ mat-card-content {
 }
 
 table {
-  width: 80%;
+  width: 100%;
+}
+
+th {
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
 }

@@ -2,13 +2,13 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-grid-tile>
       
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            card.titl
+            <button mat-icon-button class="more-button">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
@@ -18,10 +18,23 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          
         </mat-card-content>
       </mat-card>
       
     </mat-grid-tile>
   </mat-grid-list>
+
+
+  <h1>Upload your Avatar!</h1>
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <input type="file" name="avatar[]" (change)="onFileChange($event)" multiple/>
+    <button type="submit">Upload</button>
+
+  </form>
+</div>
+<img src={{uploadedDir}}>
+  <img src="https://www.pythonanywhere.com/user/PathumLakshan/files/home/PathumLakshan/JRAPI/jeep.png">
 </div>

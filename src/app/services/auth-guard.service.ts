@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private auth: AuthService) { }
+  // tslint:disable-next-line:variable-name
+  constructor(private _auth: AuthService, private _router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.auth.authenticationState.value) {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    if (localStorage.getItem('token')) {
       return true;
-    } else {
-      return false;
     }
+
+    this._router.navigate(['/login']);
+    return false;
   }
 }

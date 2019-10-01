@@ -1,45 +1,87 @@
+<mat-grid-list cols="2" rowHeight="650px">
+  <mat-grid-tile>
+      <mat-card class="details">
+        <mat-card-title>Your Current Drivers Details</mat-card-title>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <mat-card>
-            <mat-card-title>Add New Driver</mat-card-title>
-              <mat-card-content>
-                <form [formGroup]="newDriverForm" (ngSubmit)="submit()">
-                  <p>
-                    <mat-form-field>
-                      <input type="text" matInput placeholder="Driver Name" formControlName="driver_name">
-                    </mat-form-field>
-                  </p>
-        
-                  <p>
-                    <mat-form-field>
-                      <input type="text" matInput placeholder="Driver Email" formControlName="driver_email">
-                    </mat-form-field>
-                  </p>
-    
-                  <p>
-                        <mat-form-field>
-                          <input type="text" matInput placeholder="Driver NIC" formControlName="driver_nic">
-                        </mat-form-field>
-                      </p>
-                  
-    
-                  <p>
-                        <mat-form-field>
-                          <input type="text" matInput placeholder="License" formControlName="license">
-                        </mat-form-field>
-                </p>
-    
-                
-    
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                  <th mat-header-cell *matHeaderCellDef> Weight </th>
+                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                  <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              
+              
+
+        </mat-card-content>
+      </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+      <mat-card class="newdriver">
+          <mat-card-title>Add New Driver</mat-card-title>
+            <mat-card-content>
+              <form [formGroup]="newDriverForm" (ngSubmit)="submit()">
                 <p>
-                        <mat-form-field>
-                          <input type="text" matInput placeholder="Contact Number" formControlName="contact_num">
-                        </mat-form-field>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Driver Name" formControlName="driver_name">
+                  </mat-form-field>
                 </p>
-    
-                  <div class="button">
-                    <button type="submit" color="primary" mat-raised-button>Register</button>
-                  </div>
         
-                </form>        
-              </mat-card-content>
-            </mat-card>
+                <p>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Driver Email" formControlName="driver_email">
+                  </mat-form-field>
+                </p>
+        
+                <p>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Driver NIC" formControlName="driver_nic">
+                  </mat-form-field>
+                </p>
+                <p>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="License" formControlName="license">
+                  </mat-form-field>
+                </p>
+        
+                <p>
+                  <mat-form-field>
+                    <input type="text" matInput placeholder="Contact Number" formControlName="contact_num">
+                  </mat-form-field>
+                </p>
+        
+                <div class="button">
+                  <button type="submit" color="primary" mat-raised-button>Register</button>
+                </div>
+              </form>        
+          </mat-card-content>
+        </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+
+
+

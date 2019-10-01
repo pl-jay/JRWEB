@@ -1,33 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+
+
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UploadService } from '../services/upload.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+
+export class DashboardComponent implements OnInit {
+
+  form: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private uploadService: UploadService) {
+  }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      avatar: ['']
+    });
+  }
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.get('avatar').setValue(file);
+      console.log(this.form.value)
+    } else {
+      console.log(event);
+    }
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.form.get('avatar').value);
+
+    this.uploadService.upload(formData);
+  }
+
 }
