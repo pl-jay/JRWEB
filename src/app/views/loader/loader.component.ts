@@ -9,12 +9,13 @@ import { Subject } from 'rxjs/internal/Subject';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent  {
-  color = 'primary';
-  mode = 'indeterminate';
-  value = 50;
+  loading: boolean;
 
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
-
-  constructor(private loaderService: LoaderService) { }
+  constructor(private loaderService: LoaderService) {
+    this.loaderService.isLoading.subscribe((v) => {
+      console.log(v);
+      this.loading = v;
+    });
+  }
 
 }

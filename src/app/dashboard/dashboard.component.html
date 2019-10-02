@@ -18,7 +18,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          
+          <img src="E:\Dev\Python\flask-jwt\env\API\static/img/download.jpg1">
         </mat-card-content>
       </mat-card>
       
@@ -27,14 +27,12 @@
 
 
   <h1>Upload your Avatar!</h1>
-<div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <input type="file" name="avatar[]" (change)="onFileChange($event)" multiple/>
-    <button type="submit">Upload</button>
+      <input type="file" name="avatar[]" (change)="onFileChange($event)" multiple/>
+      <button type="submit">Upload</button>
 
-  </form>
-</div>
-<img src={{uploadedDir}}>
-  <img src="https://www.pythonanywhere.com/user/PathumLakshan/files/home/PathumLakshan/JRAPI/jeep.png">
+    </form>
+  </div>
 </div>

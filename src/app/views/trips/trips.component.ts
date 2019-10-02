@@ -18,8 +18,9 @@ export class TripsComponent implements OnInit {
 
   owner_id: number;
 
-  displayedColumns: string[] = ['destination', 'date_from', 'date_to','pickup_time', 'no_of_passengers', 
-                                'ac_condition', 'vehicle_type', 'waypoint','button' ];
+  displayedColumns: string[] 
+  = ['destination', 'date_from', 'date_to','pickup_time', 'no_of_passengers', 
+    'ac_condition', 'vehicle_type', 'waypoint','button' ];
   dataSource: any;
   budget: number;
 

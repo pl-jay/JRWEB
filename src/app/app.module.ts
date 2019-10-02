@@ -14,24 +14,17 @@ import { LoaderComponent } from './views/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderService } from './services/loader.service';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { InteceptorService } from './services/inteceptor.service';
+import { LoaderInterceptor } from './services/loader.interceptors';
+
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TripDialogComponent } from '../app/trip-dialog/trip-dialog.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './auth/login/login.component';
-import { MatFormFieldModule } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -55,11 +48,12 @@ import { MaterialModule } from './material.module';
     HttpClientModule,
     LayoutModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: InteceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
   entryComponents: [TripDialogComponent],
   bootstrap: [AppComponent]

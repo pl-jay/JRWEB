@@ -37,3 +37,14 @@ mat-grid-tile {
 mat-form-field {
   width: 400px;
 }
+
+mat-card {
+  max-width: 600px;
+  width: 400px;
+}
+
+th {
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+}

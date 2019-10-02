@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-
-
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UploadService } from '../services/upload.service';
 
@@ -16,6 +13,7 @@ import { UploadService } from '../services/upload.service';
 export class DashboardComponent implements OnInit {
 
   form: FormGroup;
+  loading = false;
 
   constructor(private formBuilder: FormBuilder, private uploadService: UploadService) {
   }
@@ -30,7 +28,7 @@ export class DashboardComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.form.get('avatar').setValue(file);
-      console.log(this.form.value)
+      console.log(this.form.value);
     } else {
       console.log(event);
     }
@@ -40,7 +38,7 @@ export class DashboardComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.form.get('avatar').value);
 
-    this.uploadService.upload(formData);
+    this.uploadService.upload(formData, 1);
   }
 
 }

@@ -21,6 +21,11 @@ export class AuthService {
     });
   }
 
+  get isLoggedIn() {
+    console.log(this.authenticationState.value)
+    return this.authenticationState.asObservable();
+  }
+
   loginMethod(value) {
     const user = {
       username: value.username,

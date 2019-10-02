@@ -13,6 +13,9 @@ const URL = environment.url;
 })
 export class OwnerRegComponent implements OnInit {
 
+  current_details: any;
+  nic_image: File;
+
   newOwnerForm: FormGroup = new FormGroup({
     owner_name: new FormControl(''),
     owner_nic: new FormControl(''),
@@ -26,12 +29,26 @@ export class OwnerRegComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get(URL + 'owner_details/'+`${2}`).subscribe((res)=>{
+      this.current_details = res[0];
+      console.log(res)
+    })
   }
 
   submit() {
     console.log(this.newOwnerForm)
     if (this.newOwnerForm.valid) {
       console.log(this.newOwnerForm.value);
+    }
+  }
+
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.nic_image = file;
+      console.log('TRUE CASE',this.nic_image)
+    } else {
+      console.log('ELSE CASE',event);
     }
   }
 

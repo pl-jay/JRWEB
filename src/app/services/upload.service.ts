@@ -12,12 +12,12 @@ export class UploadService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public upload(data) {
-    const uploadURL = `${URL}upload`;
+  public upload(data, userId) {
+    const uploadURL = `${URL}upload/` + `${1}`;
 
     this.httpClient.post(uploadURL, data).subscribe((res) =>{
       console.log(res);
-      // return res[`dir`];
+      return res[`dir`];
     });
   }
 

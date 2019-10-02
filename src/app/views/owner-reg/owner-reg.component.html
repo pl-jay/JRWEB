@@ -3,14 +3,16 @@
       <mat-card>
         <mat-card-title>Your Current Details</mat-card-title>
         <mat-card-content>
+          
             <mat-list role="list">
-              <mat-list-item role="listitem">Owner Name:</mat-list-item>
-              <mat-list-item role="listitem">NIC:</mat-list-item>
-              <mat-list-item role="listitem">Address:</mat-list-item>
-              <mat-list-item role="listitem">Area:</mat-list-item>
-              <mat-list-item role="listitem">Contact Details:</mat-list-item>
-              <mat-list-item role="listitem">Service Type:</mat-list-item>
-              <mat-list-item role="listitem">Company Name:</mat-list-item>
+              <mat-list-item role="listitem">Owner Name: <strong> {{current_details.owner_name}} </strong></mat-list-item>
+              <mat-list-item role="listitem">Owner Email:<strong> {{current_details.owner_email}} </strong></mat-list-item>
+              <mat-list-item role="listitem">NIC: <strong>{{current_details.owner_nic}} </strong></mat-list-item>
+              <mat-list-item role="listitem">Address: <strong>{{current_details.address}} </strong></mat-list-item>
+              <mat-list-item role="listitem">Area:<strong> {{current_details.area}} </strong></mat-list-item>
+              <mat-list-item role="listitem">Contact Details:<strong> {{current_details.contact_num}} </strong></mat-list-item>
+              <mat-list-item role="listitem">Service Type: <strong>{{current_details.service_type}} </strong></mat-list-item>
+              <mat-list-item role="listitem">Company Name: <strong>{{current_details.company_name}} </strong></mat-list-item>
             </mat-list>
         </mat-card-content>
       </mat-card>
@@ -66,8 +68,16 @@
             <button type="submit" color="primary" mat-raised-button>Update Details</button>
           </div>
   
-        </form>        
+        </form>
       </mat-card-content>
+      <mat-card-footer>
+        <div>
+      
+          <input type="file" [(ngModel)]="nic_image" (change)="onFileChange($event)"/>
+          <button type="submit">Upload</button>
+    
+      </div>
+      </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

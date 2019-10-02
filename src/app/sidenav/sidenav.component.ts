@@ -14,7 +14,7 @@ import { MatSidenav } from '@angular/material';
 })
 export class SidenavComponent implements OnInit {
 
-  isLogged = false;
+  isLoggedIn$: Observable<boolean>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -23,16 +23,11 @@ export class SidenavComponent implements OnInit {
     );
 
   // tslint:disable-next-line:variable-name
-  constructor(private breakpointObserver: BreakpointObserver, private _auth: AuthService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private _auth: AuthService) {
+  }
 
   ngOnInit() {
-    if (localStorage.getItem('token')) {
-      console.log(this._auth.authenticationState.value)
-      this.isLogged = true;
-    } else {
-      console.log(this._auth.authenticationState.value)
-      this.isLogged = false;
-    }
+    this.isLoggedIn$ = this._auth.isLoggedIn;
   }
 
   logout() {
