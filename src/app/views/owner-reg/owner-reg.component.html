@@ -71,14 +71,63 @@
         </form>
       </mat-card-content>
       <mat-card-footer>
-        <div>
-      
-          <input type="file" [(ngModel)]="nic_image" (change)="onFileChange($event)"/>
-          <button type="submit">Upload</button>
-    
-      </div>
-      </mat-card-footer>
+          <div>
+              <h6>Before Register please upload the NIC and Company Registration Document Images</h6>
+              <h6>Scroll Down to Upload Images</h6>
+          </div>
+        </mat-card-footer>
     </mat-card>
   </mat-grid-tile>
+
+<mat-grid-tile>
+    <mat-card>
+        <mat-card-title>NIC and Company Registration Document Images</mat-card-title>
+        <mat-card-content>
+            <mat-list role="list" class="images">
+              <mat-list-item role="listitem">
+                  <h5>Owner NIC</h5>
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                
+                    <form [formGroup]="formNIC" (ngSubmit)="onSubmit()">
+                      <input type="file" name="avatar[]" (change)="onFileChange($event)" multiple/>
+                      <button type="submit">Upload</button>
+                    </form>
+              
+                
+
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                  <h5>Company Logo</h5>
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                
+                <form [formGroup]="formCmpy" (ngSubmit)="onSubmitCmp()">
+  
+                    <input type="file" name="avatar[]" (change)="onFileChangeCmp($event)" multiple/>
+                    <button type="submit">Upload</button>
+              
+                  </form>
+
+              </mat-list-item>
+
+              <mat-list-item role="listitem">
+                  <h5>Company Regisration Document</h5>
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                
+                <form [formGroup]="formReg" (ngSubmit)="onSubmitReg()">
+  
+                    <input type="file" name="avatar[]" (change)="onFileChangeReg($event)" multiple/>
+                    <button type="submit">Upload</button>
+              
+                  </form>
+
+              </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+      </mat-card>
+</mat-grid-tile>
+
 </mat-grid-list>
   

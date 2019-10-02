@@ -27,10 +27,10 @@ export class TripsComponent implements OnInit {
   constructor(private http: HttpClient, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.owner_id = parseInt(localStorage.getItem('user_id').toString(), 3);
+    this.owner_id = localStorage.getItem('user_id');
     console.log(this.owner_id);
 
-    this.http.get(URL + 'tripsby_owner/' + `${1}`).subscribe((data) => {
+    this.http.get(URL + 'tripsby_owner/' + `${this.owner_id}`).subscribe((data) => {
       console.log(data)
       this.dataSource = data;
     })
@@ -45,14 +45,24 @@ export class TripsComponent implements OnInit {
 
     dialogConfig.data = {
       id: tripId,
-      title: 'Assign Budget For This Trip'
+      title: 'Assign Budget'
     }
 
     const dialogRef = this.dialog.open(TripDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      (data) => {console.log('Dialog output: ', data, tripId)}
-    );
+      (data) => {
+        const newBudget = {
+          trip_id: tripId,
+          budget: data[`budget`],
+          owner_id: this.owner_id,
+          ts_id: null
+        }
+        console.log(newBudget)
+        this.http.post(URL + 'sendBudget', newBudget).subscribe((res) => {
+          console.log(res);
+        })
+      });
   }
 }
 

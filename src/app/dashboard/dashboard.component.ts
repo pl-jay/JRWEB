@@ -37,7 +37,6 @@ export class DashboardComponent implements OnInit {
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.form.get('avatar').value);
-
     this.uploadService.upload(formData, 1);
   }
 

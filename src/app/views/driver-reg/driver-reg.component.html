@@ -1,6 +1,6 @@
 <mat-grid-list cols="2" rowHeight="650px">
   <mat-grid-tile>
-      <mat-card width="700px" class="details">
+      <mat-card width="800px" class="details">
         <mat-card-title>Your Current Drivers Details</mat-card-title>
         <mat-card-content>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -81,20 +81,68 @@
                   <button type="submit" color="primary" mat-raised-button>Register</button>
                 </div>
               </form>
-              <div>
-                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                
-                    <input type="file" name="avatar[]" (change)="onFileChange($event)" multiple/>
-                    <button type="submit">Upload</button>
-                
-                  </form>
-                </div>
-              
-
           </mat-card-content>
+          <mat-card-footer>
+            <div>
+                <h6>Before Register please upload the NIC and Driving License Images</h6>
+                <h6>Scroll Down to Upload Images</h6>
+            </div>
+          </mat-card-footer>
         </mat-card>
   </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+        <mat-card-title>Drivers Details Images</mat-card-title>
+        <mat-card-content>
+            <mat-list role="list" class="images">
+              <mat-list-item role="listitem">
+                  <h5>Driver NIC Image</h5>
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                
+                    <form [formGroup]="formNIC" (ngSubmit)="onSubmit()">
+                      <input type="file" name="avatar[]" (change)="onFileChange($event)" />
+                      <button type="submit">Upload</button>
+                    </form>
+              
+                
 
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                  <h5>Driving License Image</h5>
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                
+                <form [formGroup]="formDL" (ngSubmit)="onSubmitDL()">
+  
+                    <input type="file" name="avatar[]" (change)="onFileChangeDL($event)" />
+                    <button type="submit">Upload</button>
+              
+                  </form>
+
+              </mat-list-item>
+
+              <mat-list-item role="listitem">
+                  <h5>Driver Profile Image</h5>
+              </mat-list-item>
+              <mat-list-item role="listitem">
+                
+                <form [formGroup]="formProf" (ngSubmit)="onSubmitProf()">
+  
+                    <input type="file" name="avatar[]" (change)="onFileChangeProf($event)" />
+                    <button type="submit">Upload</button>
+              
+                  </form>
+
+              </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+      </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+  </mat-grid-tile>
 </mat-grid-list>
 
 

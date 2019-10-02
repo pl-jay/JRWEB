@@ -24,6 +24,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -49,7 +54,12 @@ import { MaterialModule } from './material.module';
     LayoutModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     LoaderService,

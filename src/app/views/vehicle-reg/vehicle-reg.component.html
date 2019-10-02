@@ -67,14 +67,24 @@
                   <p>
                     <mat-form-field>
                     <mat-label>Cars</mat-label>
-                    <select matNativeControl formControlName="v_type">
-                        <option value="car">Car</option>
-                        <option value="van">Van</option>
-                        <option value="suv">SUV</option>
-                        <option value="bus">Bus</option>
-                    </select>
+                    <mat-select  formControlName="v_type">
+                        <mat-option value="car">Car</mat-option>
+                        <mat-option value="van">Van</mat-option>
+                        <mat-option value="suv">SUV</mat-option>
+                        <mat-option value="bus">Bus</mat-option>
+                    </mat-select>
                     </mat-form-field>
                   </p>
+
+                  <p>
+                      <mat-form-field>
+                      <mat-label>Assign Driver</mat-label>
+                      <mat-select  formControlName="driver_id">
+                          <mat-option  *ngFor="let driver of drivers" value={{driver.dr_id}}> {{driver.driver_name}} </mat-option>
+                      </mat-select>
+                      </mat-form-field>
+                    </p>
+
                   <p>
                       <mat-slide-toggle checked="checked" formControlName="ac_condition">AC Condition</mat-slide-toggle>    
                       </p>
@@ -97,6 +107,84 @@
             </form>        
           </mat-card-content>
         </mat-card>
+    </mat-grid-tile>
+  
+    <mat-grid-tile>
+        <mat-card>
+            <mat-card-title>Vehicle Images</mat-card-title>
+            <mat-card-content>
+                <mat-list role="list" class="images">
+                  <mat-list-item role="listitem">
+                      <h5>Vehicle Insurance Image</h5>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    
+                        <form [formGroup]="formVIns" (ngSubmit)="onSubmitVIns()">
+                          <input type="file" (change)="onFileChangeVIns($event)" />
+                          <button type="submit">Upload</button>
+                        </form>
+                  
+                    
+    
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                      <h5>Vehicle Revenue License Image</h5>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    
+                    <form [formGroup]="formVrl" (ngSubmit)="onSubmitVrl()">
+      
+                        <input type="file" (change)="onFileChangeVrl($event)" />
+                        <button type="submit">Upload</button>
+                  
+                      </form>
+    
+                  </mat-list-item>
+    
+                  <mat-list-item role="listitem">
+                      <h5>Driver Front Image</h5>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    
+                    <form [formGroup]="formVfront" (ngSubmit)="onSubmitVfront()">
+      
+                        <input type="file" (change)="onFileChangeVfront($event)" />
+                        <button type="submit">Upload</button>
+                  
+                      </form>
+    
+                  </mat-list-item>
+
+                  <mat-list-item role="listitem">
+                      <h5>Driver Rear Image</h5>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    
+                    <form [formGroup]="formVrear" (ngSubmit)="onSubmitVrear()">
+      
+                        <input type="file" (change)="onFileChangeVrear($event)" />
+                        <button type="submit">Upload</button>
+                  
+                      </form>
+    
+                  </mat-list-item>
+
+                  <mat-list-item role="listitem">
+                      <h5>Driver Inside Image</h5>
+                  </mat-list-item>
+                  <mat-list-item role="listitem">
+                    
+                    <form [formGroup]="formVin" (ngSubmit)="onSubmitVin()">
+      
+                        <input type="file" (change)="onFileChangeVin($event)" />
+                        <button type="submit">Upload</button>
+                  
+                      </form>
+    
+                  </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+          </mat-card>
     </mat-grid-tile>
 
 </mat-grid-list>
