@@ -62,7 +62,7 @@
         
                 <p>
                   <mat-form-field>
-                    <input type="text" matInput placeholder="Driver NIC" formControlName="driver_nic">
+                    <input type="text" matInput placeholder="Driver NIC" [pattern]="'[0-9]{9}[|v|V]$'" formControlName="driver_nic">
                   </mat-form-field>
                 </p>
                 <p>

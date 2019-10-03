@@ -30,6 +30,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
+import { PassengerConfirmedTripsComponent } from './views/passenger-confirmed-trips/passenger-confirmed-trips.component';
+import { BidedTripsComponent } from './views/bided-trips/bided-trips.component';
+import { AssignDriverDialogComponent } from './assign-driver-dialog/assign-driver-dialog.component';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -43,10 +48,14 @@ import { MatListModule } from '@angular/material/list';
     TripsComponent,
     LoaderComponent,
     SidenavComponent,
-    TripDialogComponent
+    TripDialogComponent,
+    PassengerConfirmedTripsComponent,
+    BidedTripsComponent,
+    AssignDriverDialogComponent
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
@@ -59,13 +68,13 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
-  entryComponents: [TripDialogComponent],
+  entryComponents: [TripDialogComponent, AssignDriverDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

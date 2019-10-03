@@ -1,0 +1,15 @@
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+}

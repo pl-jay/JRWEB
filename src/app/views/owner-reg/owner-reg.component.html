@@ -31,7 +31,7 @@
   
           <p>
             <mat-form-field>
-              <input type="text" matInput placeholder="Owner NIC" formControlName="owner_nic">
+              <input type="text" matInput placeholder="Owner NIC" [pattern]="'[0-9]{9}[|v|V]$'" formControlName="owner_nic">
             </mat-form-field>
           </p>
   

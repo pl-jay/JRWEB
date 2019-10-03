@@ -45,7 +45,7 @@ export class DriverRegComponent implements OnInit {
   constructor(private http: HttpClient,private formBuilder: FormBuilder, private uploadService: UploadService) { }
 
   ngOnInit() {
-    this.owner_id = localStorage.getItem('user_id');
+    this.owner_id = parseInt(localStorage.getItem('user_id'), 10);
 
     this.newDriverForm.addControl('owner_id', new FormControl(''));
 
@@ -64,6 +64,7 @@ export class DriverRegComponent implements OnInit {
       dl: ['']
     });
   }
+
 
   //#region FILE UPLOAD
 

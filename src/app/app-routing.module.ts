@@ -7,7 +7,8 @@ import { DriverRegComponent } from './views/driver-reg/driver-reg.component';
 import { TripsComponent } from './views/trips/trips.component';
 import { OwnerRegComponent } from './views/owner-reg/owner-reg.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { PassengerConfirmedTripsComponent } from './views/passenger-confirmed-trips/passenger-confirmed-trips.component';
+import { BidedTripsComponent } from './views/bided-trips/bided-trips.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'driverReg', pathMatch: 'full', canActivate: [AuthGuardService], component: DriverRegComponent},
   { path: 'ownerReg', pathMatch: 'full', canActivate: [AuthGuardService], component: OwnerRegComponent},
   { path: 'trips', pathMatch: 'full', canActivate: [AuthGuardService], component: TripsComponent},
+  { path: 'confirmed-trips', pathMatch: 'full', canActivate: [AuthGuardService], component: PassengerConfirmedTripsComponent},
+  { path: 'bided-trips', pathMatch: 'full', canActivate: [AuthGuardService], component: BidedTripsComponent},
 
   { path: '', redirectTo: 'dashboard', canActivate: [AuthGuardService], pathMatch: 'full' },
 

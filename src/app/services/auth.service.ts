@@ -22,7 +22,6 @@ export class AuthService {
   }
 
   get isLoggedIn() {
-    console.log(this.authenticationState.value)
     return this.authenticationState.asObservable();
   }
 

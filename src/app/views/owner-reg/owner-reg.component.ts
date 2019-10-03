@@ -39,7 +39,7 @@ export class OwnerRegComponent implements OnInit {
 
   ngOnInit() {
     
-    this.owner_id = localStorage.getItem('user_id');
+    this.owner_id = parseInt(localStorage.getItem('user_id'), 10);
 
     console.log(this.owner_id)
     this.http.get(URL + 'owner_details/'+ `${this.owner_id}`).subscribe((res) => {

@@ -2,9 +2,11 @@
 
 <mat-dialog-content [formGroup]="dialogForm">
   <mat-form-field>
-    <input matInput type="number" placeholder="Budget" formControlName="budget">
+        <mat-label>Assign Driver</mat-label>
+        <mat-select  formControlName="driver">
+            <mat-option  *ngFor="let driver of drivers" value={{driver.dr_id}}> {{driver.driver_name}} </mat-option>
+        </mat-select>
   </mat-form-field>
-  <p>Budget should be in 2000-100000 range.</p>
 </mat-dialog-content>
 
 <mat-dialog-actions>

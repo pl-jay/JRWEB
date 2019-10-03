@@ -53,7 +53,7 @@ export class VehicleRegComponent implements OnInit {
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private uploadService: UploadService) { }
 
   ngOnInit() {
-    this.owner_id = localStorage.getItem('user_id');
+    this.owner_id = parseInt(localStorage.getItem('user_id'), 10);
 
     this.http.get(URL + 'drivers/' + `${this.owner_id}`).subscribe((res) => {
       console.log(res);

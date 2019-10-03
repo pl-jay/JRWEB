@@ -1,10 +1,10 @@
-<mat-sidenav-container class="sidenav-container" autosize>
+<mat-sidenav-container fxFlexFill class="sidenav-container" autosize>
 
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer fxLayout="column" class="sidenav" fixedInViewport
       [mode]="'side'"
       [opened]="false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list *ngIf="isLoggedIn$ | async">
+    <mat-nav-list *ngIf="isLoggedIn$ | async" fxLayout="column">
       <a mat-list-item routerLink="">
         <mat-icon aria-hidden="false">home</mat-icon>
         <span></span>
@@ -26,22 +26,33 @@
         <mat-icon aria-hidden="false">navigation</mat-icon>
         <span></span>
         Available Trips</a>
+      <a mat-list-item routerLink="/confirmed-trips">
+        <mat-icon aria-hidden="false">navigation</mat-icon>
+        <span></span>
+        Passenger Confirmed Trips</a>
+      <a mat-list-item routerLink="/bided-trips">
+        <mat-icon aria-hidden="false">navigation</mat-icon>
+        <span></span>
+        You're Bided Trips</a>
     </mat-nav-list>    
   </mat-sidenav>
-
-
-  <mat-sidenav-content>
+  
+  
+  <mat-sidenav-content fxFlexFill>
     <mat-toolbar color="primary" *ngIf="isLoggedIn$ | async">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <button type="button" fxShow="true" fxHide.gt-sm="true" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="menu-spacer"></span>
-      <div>
+      <div fxShow="true" fxHide.lt-md="true">
         <a mat-button  routerLink="" style="font-size: 1em;">Dashboard</a>
         <a mat-button  routerLink="/ownerReg">Update Owner Details</a>
         <a mat-button  routerLink="/driverReg">Add New Driver</a>
         <a mat-button  routerLink="/vehicleReg">Add New Vehicle</a>
-        <a mat-button  routerLink="/trips">Available Trips</a>  
+        <a mat-button  routerLink="/trips">Available Trips</a>
+        <a mat-button  routerLink="/confirmed-trips">Passenger Confirmed Trips</a>
+        <a mat-button  routerLink="/bided-trips">You're Bided Trips</a>
+        
       </div>
       <span class="example-spacer"></span>
       

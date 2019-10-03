@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UploadService } from '../services/upload.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   form: FormGroup;
   loading = false;
+
 
   constructor(private formBuilder: FormBuilder, private uploadService: UploadService) {
   }
@@ -34,10 +35,9 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.form.get('avatar').value);
-    this.uploadService.upload(formData, 1);
-  }
-
+  // onSubmit() {
+  //   const formData = new FormData();
+  //   formData.append('file', this.form.get('avatar').value);
+  //   this.uploadService.upload(formData, 1);
+  // }
 }
